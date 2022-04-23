@@ -1,7 +1,8 @@
 from tkinter import *
 from tkinter import ttk
 
-from data_persistence.service import service
+from service import service
+
 
 
 def fetch_from_search():
@@ -18,20 +19,25 @@ def fetch_from_search():
 
     try:
         return service.get_movie_from_title(list[0]), service.get_review_from_title(list[0])
+
     except:
         pass
 
 def update():
     m,r = fetch_from_search()
-    m.title = title_entry.get()
-    m.genre = genre_entry.get()
-    m.lead_studio = studio_entry.get()
-    m.profit = profit_entry.get()
-    m.ww_gross = gross_entry.get()
-    m.year = year_entry.get()
-    r.audience_score = a_entry.get()
-    r.rt_score = rt_entry.get()
-    service.models.session.commit()
+    m_title = title_entry.get()
+    m_genre = genre_entry.get()
+    m_lead_studio = studio_entry.get()
+    m_profit = profit_entry.get()
+    m_ww_gross = gross_entry.get()
+    m_year = year_entry.get()
+    r_audience_score = a_entry.get()
+    r_rt_score = rt_entry.get()
+
+    service.update_movie(m, m_title, m_genre, m_lead_studio, m_profit, m_ww_gross, m_year)
+    service.update_review(r,r_audience_score, r_rt_score)
+
+    service.commit()
     # to update all input and output
     search()
 
@@ -72,7 +78,7 @@ def search():
     set_update_ui(movie,review)
 
 
-
+service = service.Service()
 # fetch start
 list = service.get_movie_titles_from_title("")
 movie = service.get_movie_from_title(list[0])
