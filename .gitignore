@@ -1,0 +1,9 @@
+__pycache__
+env/
+
+read.py
+script.py
+update.py
+Save/
+main.py
+movie-review.db

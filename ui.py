@@ -1,8 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 
-import service
-import models
+from data_persistence.service import service
 
 
 def fetch_from_search():

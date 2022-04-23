@@ -1,4 +1,6 @@
-import models
+from data_persistence import models
+
+models.main()
 
 file = open('movies.csv')
 csvreader = models.csv.reader(file)
