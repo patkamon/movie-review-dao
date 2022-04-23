@@ -30,7 +30,6 @@ def update():
     m.profit = profit_entry.get()
     m.ww_gross = gross_entry.get()
     m.year = year_entry.get()
-    r.title = title_entry.get()
     r.audience_score = a_entry.get()
     r.rt_score = rt_entry.get()
     service.models.session.commit()

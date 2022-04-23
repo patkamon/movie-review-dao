@@ -13,4 +13,5 @@ def get_movie_from_title(_title):
 
 
 def get_review_from_title(_title):
-    return models.session.query(models.Review).filter_by(title=_title).first()
+    movie = get_movie_from_title(_title)
+    return models.session.query(models.Review).filter_by(movie_key=movie.id).first()
