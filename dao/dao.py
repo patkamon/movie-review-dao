@@ -1,4 +1,4 @@
-from data_persistence import models
+from persistence_data import models
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
