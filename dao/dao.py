@@ -1,27 +1,41 @@
 from data_persistence import models
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
+
+class DaoFactory:
+
+    def __init__(self):
+        engine = create_engine('sqlite:///movie-review.db', echo=True)
+        Session = sessionmaker(bind=engine)
+        self.session = Session()
+        self.dao_instance = Dao(self.session)
+
 
 class Dao:
 
+    def __init__(self, session):
+        self.session = session
+
     def get_all_movies(self):
-        return models.session.query(models.Movie).all()
+        return self.session.query(models.Movie).all()
 
     def get_movie_from_title(self,_title):
-        return models.session.query(models.Movie).filter_by(title=_title).first()
+        return self.session.query(models.Movie).filter_by(title=_title).first()
 
     def get_movies_from_title(self,title):
-        return models.session.query(models.Movie).filter_by(title=_title)
+        return self.session.query(models.Movie).filter_by(title=_title)
 
     def get_movie_id_from_movie_title(self,_title):
-        return models.session.query(models.Movie).filter_by(title=_title).first().id
+        return self.session.query(models.Movie).filter_by(title=_title).first().id
 
     def get_all_reviews(self):
-        return models.session.query(models.Review).all()
+        return self.session.query(models.Review).all()
 
     def get_review_from_movie_id(self,id):
-        return models.session.query(models.Review).filter_by(movie_key=id).first()
+        return self.session.query(models.Review).filter_by(movie_key=id).first()
 
     def commit(self):
-        models.session.commit()
+        self.session.commit()
 
     def update_review(self, review, audience_score, rt_score):
         review.audience_score = audience_score
@@ -34,4 +48,3 @@ class Dao:
         movie.profit = profit
         movie.ww_gross = ww_gross
         movie.year = year
-        

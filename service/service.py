@@ -2,7 +2,8 @@ from dao import dao
 
 class Service:
 
-    dao = dao.Dao()
+    dao = dao.DaoFactory()
+    dao = dao.dao_instance
 
     def get_movie_titles_from_title(self,title):
         list = []
