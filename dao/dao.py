@@ -8,8 +8,9 @@ class DaoFactory:
         engine = create_engine('sqlite:///movie-review.db', echo=True)
         Session = sessionmaker(bind=engine)
         self.session = Session()
-        self.dao_instance = Dao(self.session)
 
+    def create(self):
+        return Dao(self.session)
 
 class Dao:
 
