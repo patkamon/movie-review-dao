@@ -19,3 +19,7 @@ Optional run `SELECT * FROM movie` to see data in movies table <br/>
 (exit from sqlite by `.exit`)<br/>
 run `python3 ui.py` to use GUI of database<br/>
 You can search and update them easily with `ui.py`<br/>
+
+
+# Diagram
+![img](img/uml_class_&_package_diagram.png)
