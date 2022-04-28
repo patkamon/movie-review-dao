@@ -22,4 +22,7 @@ You can search and update them easily with `ui.py`<br/>
 
 
 # Diagram
-![img](img/uml_class_&_package_diagram.png)
+Class Diagram <br/>
+![img](img/class_diagram.drawio.png)
+Package Diagram <br/>
+![img](img/package_dao.drawio.png)
