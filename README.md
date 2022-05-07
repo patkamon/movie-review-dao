@@ -26,3 +26,6 @@ Class Diagram <br/>
 ![img](img/class_diagram.drawio.png)
 Package Diagram <br/>
 ![img](img/package_dao.drawio.png)
+
+# Web Service API
+[docs](https://docs.google.com/document/d/1aeJyWDSXZ7A4NyvWSndso4wxDpUixjHKTBs9Id3qal0/edit?usp=sharing)
